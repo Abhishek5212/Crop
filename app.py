@@ -1,14 +1,9 @@
-!pip install flask-ngrok
+
 import numpy as np
 from flask import Flask, request, jsonify, render_template
-from flask_ngrok import run_with_ngrok
 import pickle
-import pandas as pd
-dataset= pd.read_csv('/content/drive/My Drive/Crop_recommendation.csv')
-
 app = Flask(__name__)
 model = pickle.load(open('/content/drive/My Drive/proj_nb.pkl','rb')) 
-run_with_ngrok(app)
 
 @app.route('/')
 def home():
@@ -16,7 +11,7 @@ def home():
     return render_template("index.html")
 
 @app.route('/Find')
-def feed():
+def find():
   
     return render_template("Find.html")
 
@@ -87,4 +82,5 @@ def predict():
     return render_template('Find.html', prediction_text='Model has predicted that you should grow : {}'.format(output))
 
 
-app.run()
+if __name__ == "__main__":
+    app.run(debug=True)
