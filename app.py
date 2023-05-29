@@ -10,12 +10,6 @@ def home():
   
     return render_template("index.html")
 
-@app.route('/Find')
-def find():
-  
-    return render_template("Find.html")
-
-  
 @app.route('/predict',methods=['GET'])
 def predict():
     
