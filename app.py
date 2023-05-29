@@ -73,7 +73,7 @@ def predict():
     else:
         output='watermelon'
         
-    return render_template('Find.html', prediction_text='Model has predicted that you should grow : {}'.format(output))
+    return render_template('index.html', prediction_text='Model has predicted that you should grow : {}'.format(output))
 
 
 if __name__ == "__main__":
